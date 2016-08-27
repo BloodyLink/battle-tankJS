@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Battle-TankJS</title>
+	<script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="http://beneposto.pl/jqueryrotate/js/jQueryRotateCompressed.js"></script>
+</head>
+<style type="text/css">
+	body{background-color: #000;}
+	#tank_p1{
+		width: 60px;
+		height: 60px;
+		position: absolute;
+    	top: 50%;
+	    left: 50%;
+	    margin-top: -50px;
+	    margin-left: -50px;
+</style>
+<script type="text/javascript">
+	$(document).ready(function(){		
+		$(this).on( "keydown", function( event ) {
+  			if(event.which == 37){
+  				console.log("left");
+  				$('#tank_p1').rotate(-90);
+  				$('#tank_p1').stop().animate({left: '-=500px'}, 5000);
+  			}
+  			if(event.which == 38){
+				console.log("up");
+				$('#tank_p1').rotate(0);
+				$('#tank_p1').stop().animate({top: '-=500px'}, 5000);
+			}
+			if(event.which == 39){
+				console.log("right");
+				$('#tank_p1').rotate(90);
+				$('#tank_p1').stop().animate({left: '+=500px'}, 5000);
+			}
+			if(event.which == 40){
+				console.log("down");
+				$('#tank_p1').rotate(180);
+				$('#tank_p1').stop().animate({top: '+=500px'}, 5000);
+			}
+		});
+	});
+</script>
+<body>
+<div class="tank" id="tank_p1"><img src="http://www.emunix.emich.edu/~evett/GameProgramming/BookCode/chapter08.new/rotatesprite/tank.bmp" width="60px" height="60px"></div>
+</body>
+</html>
